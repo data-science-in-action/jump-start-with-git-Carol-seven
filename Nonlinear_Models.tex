@@ -1,0 +1,25 @@
+\documentclass[12pt, titlepage]{article}
+% \linespread{1}
+\title{Nonlinear Models and Their Applications}
+
+\begin{document}
+	\maketitle
+\section{General Concept}
+Let $F_{t-1}$ denote the information available at time $t-1$\\
+Conditional mean: $\mu_{t}=E(x_{t}|F_{t-1})\equiv g(F_{t-1})$\\
+Conditional variance: $\sigma_{2}^{t}=Var(x_{t}|F_{t-1}\equiv h(F_{t-1}))$\\
+where $g(.)$ and $h(.)$ are well-defined functions with $h(.)>0$.
+
+\section{TAR Model} 
+A piecewise linear model in the space of a threshold
+variable.
+Example: 2-regime AR(1) model
+$$ x_{t}=\begin{cases}
+-1.5x_{t-1}+a_{t} & x_{t-1}<0 \\
+0.5x_{t-1}+a_{t} & x_{t-1}\geq0 \\
+\end{cases}$$
+where $a_{t}$'s are iid $N(0,1)$.
+Here the delay is 1 time period, $x_{t-1}$ is the threshold variable, and the threshold is 0. The threshold divides the range (or space) of $x_{t-1}$ into two regimes with Regime 1 denoting $x_{t-1}<0$.
+Special features of the model: (a) asymmetry in rising and declining patterns, (more data points are positive than negative), (b) the mean of $x_{t}$ is not zero even though there is no constant term in the model, (c) the lag-1 coefficient may be greater than 1 in absolute value.   
+
+\end{document}
