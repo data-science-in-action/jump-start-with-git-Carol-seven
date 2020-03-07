@@ -1,0 +1,95 @@
+---
+title: "常用分布"
+author:
+  -   哈哈哈
+documentclass: ctexart
+output:
+  rticles::ctex:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+classoption: "hyperref,"
+---
+
+# (0-1)分布
+
+离散型随机变量$X$服从参数为$p$的(0-1)分布或两点分布，记作$X\sim B(1,p)$
+$$P\{X=k\}=p^{k}(1-p)^{1-k},　k=0,1,　0<p<1$$
+
+# 二项分布，n重伯努利分布
+
+离散型随机变量$X$服从参数为$n,p$的二项分布或伯努利分布，记作$X\sim B(n,p)$
+$$P\{X=k\}=C_{n}^kp^{k}(1-p)^{n-k},　k=0,1,...,n　0<p<1$$
+
+# 泊松分布
+
+离散型随机变量$X$服从参数为$\lambda$的泊松(Poisson)分布，记作$X\sim \pi(\lambda)$或$X\sim P(\lambda)$
+$$P\{X=k\}=\frac{\lambda^{k}e^{-\lambda}}{k!},　k=1,2,...,　\lambda>0$$
+
+# 均匀分布
+
+连续型随机变量$X$在区间$(a,b)$上服从均匀分布，记作$X\sim U(a,b)$
+$$f(x)=\begin{cases}
+\frac{1}{b-a}, & a<x<b\\
+0, & \text{其他}
+\end{cases}$$
+$$F(x)=\begin{cases}
+0, & x<a\\
+\frac{x-a}{b-a}, & a\leq x<b\\
+1, & x\geq b
+\end{cases}$$
+
+# 指数分布
+
+连续型随机变量$X$服从参数为$\theta (\theta>0)$的指数分布，记作$X\sim e(\theta)$或$X\sim \Gamma(1,\theta)$
+$$f(x)=\begin{cases}
+\frac{1}{\theta}e^{-\frac{x}{\theta}}, & x>0\\
+0, & x\leq 0
+\end{cases}$$
+$$F(X)=\begin{cases}
+1-e^{-\frac{x}{\theta}}, & x>0\\
+0, & x\leq0
+\end{cases}$$
+
+# 正态分布
+
+连续型随机变量$X$服从参数为$\mu,\sigma (\sigma>0)$的正态分布或高斯(Gauss)分布，记作$X\sim e(\theta)$或$X\sim N(\mu,\sigma^2)$
+$$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},　-\infty<x<+\infty$$
+$$F(X)=\frac{1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{x}e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt$$
+特别地，当参数$\mu=0,\sigma=1$时，称$X$服从标准正态分布，记作$X\sim N(0,1)$
+$$\varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}},　-\infty<x<+\infty$$
+$$\phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{t^2}{2}}dt,　-\infty<x<+\infty$$
+
+# 卡方分布
+
+前提：随机变量$X_{1},X_{2},...,X_{n}$独立同分布于标准正态分布
+$$\chi^2=X_{1}^{2}+X_{2}^{2}+···+X_{n}^{2}=\sum_{i=1}^{n}X_{i}^2$$
+
+随机变量$X$服从自由度为$n$的$\chi^2$分布，记作$\chi^2\sim \chi^2(n)$
+$$f(x)=\begin{cases}
+\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}, & x>0\\
+0, & 其他
+\end{cases}$$
+其中，$\Gamma(t)=\int_{0}^{+\infty}x^{t-1}e^{-x}dx,(t>0)$
+$$P\{\chi^2>\chi_{\alpha}^{2}(n)\}=\int_{\chi_{\alpha}^{2}(n)}^{+\infty}f(x)dx=\alpha,　0<\alpha<1$$
+
+# $t$分布
+
+前提：$X\sim N(0,1),Y\sim \chi^2(n)$，且$X$与$Y$相互独立
+
+随机变量$t$服从自由度为$n$的$t$分布或学生氏(Student)分布，记作$t\sim t(n)$
+$$t=\frac{X}{\sqrt{Y/n}}$$
+$$f(x)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{\pi n}\Gamma(\frac{n}{2})}(1+\frac{x^2}{n})^{-\frac{n+1}{2}},　-\infty<x<+\infty$$
+$$P\{t>t_{\alpha}(n)\}=\int_{t_{\alpha}(n)}^{+\infty}f(x)dx=\alpha,　0<\alpha<1$$
+
+# $F$分布
+
+前提：$X\sim \chi^2(n_{1})$，$Y\sim \chi^2(n_{2})$，且$X$与$Y$相互独立
+
+随机变量$F$服从自由度为$(n_{1},n_{2})$的$F$分布(Fisher)分布，记作$F\sim F(n_{1},n_{2})$
+$$F=\frac{X/n_{1}}{Y/n_{2}}=\frac{n_{2}X}{n_{1}Y}$$
+$$f(x)=\begin{cases}
+\frac{\Gamma(\frac{n_{1}+n_{2}}{2})}{\Gamma(\frac{n_{1}}{2})\Gamma(\frac{n_{2}}{2})}(\frac{n_1}{n_2})^{\frac{n_1}{2}}x^{\frac{n_1}{2}-1}(1+\frac{n_1}{n_2}x)^{-\frac{1}{2}(n_{1}+n_{2})}, & x>0\\
+0, & 其他
+\end{cases}$$
+$$P\{F>F_{\alpha}(n_1,n_2)\}=\int_{F_{\alpha}(n_1,n_2)}^{+\infty}f(x)dx=\alpha,　0<\alpha<1$$
