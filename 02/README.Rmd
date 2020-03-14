@@ -1,0 +1,32 @@
+----
+title: "Problems and Solutions to Build the Book Advanced R Programming using RStudio"
+author: "Shiying Xiao"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Use Git to clone the source of Hadley Wickham's **Advanced R Programming**. Set working directory temporarily using `setwd("C:/Users/-carol/adv-r")`. Install R Package dependencies using `devtools::install_github("hadley/sloop")` and `devtools::install_github("hadley/emo")`. Finanlly, use  `bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")` to compile the book.
+
+During the building process, I've met several problems, the followings are the errors I've met and how I solved them. Note: due to previous learning needs, [*TinyTex*],[*MiKTex*],[*Pandoc*] and some packages have been installed on my computer, some packages that must be installed during the compilation process may not be recorded.
+
+## Unable to load devtools package
+
+Execute the following command in Git
+`$ git config --global http.sslBackend "openssl"`
+`$ git config --global http.sslCAInfo [path to .pem file]`
+
+## Quitting from lines 223-235 (Introduciton.Rmd)
+
+```{r}
+knitr::include_graphics("image/Quitting from lines 223-235 (Introduciton.Rmd).PNG")
+```
+
+Adding `encoding = "UTF-8"` in line 224 can fix it. The line 224 is displayed as `contributors <- read.csv("contributors.csv", stringsAsFactors = FALSE,encoding = "UTF-8")`
+
+## Quitting from lines 327-328 (Names-values.Rmd)
+
+```{r}
+knitr::include_graphics("image/Quitting from lines 327-328 (Names-values.Rmd).PNG")
+```
+
